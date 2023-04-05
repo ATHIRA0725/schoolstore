@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form task</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+
+    form{
+          background-color:DarkCyan;
+          width:60%;
+          border:3px solid black;
+          padding:30px;
+          margin-top:50px;
+          color:black;
+          }
+      h2{
+          font-family:serif;
+          font-size:40px;
+          font-style:italic;
+          text-align:center;
+          margin-top:10px;
+          color:black;
+          }
+      input[type=text]{
+               padding:10px;
+               width:40%;
+               margin-left:80px;
+               background-color:Silver;
+               font-family:serif;
+               font-size:15px;
+               }
+      input[type=date]{
+               padding:10px;
+               width:40%;
+               margin-left:80px;
+               background-color:Silver;
+               font-family:serif;
+               color:gray;
+               font-size:15px;
+               }
+
+      input[type=email]{
+              padding:10px;
+              width:40%;
+              margin-left:80px;
+              background-color:Silver;
+              font-family:serif;
+              font-size:15px;
+              }
+       label{
+             font-style:bold;
+             font-size:20px;
+             margin-left:80px;
+             font-family:serif;
+             font-size:15px;
+           }
+
+       input[type=radio],input[type=checkbox]{
+             margin-left:80px;
+             font-family:serif;
+             font-size:15px;
+             }
+       input[type=password]{
+              margin-left:80px;
+              padding:10px;
+              width:40%;
+              background-color:Silver;
+              font-family:serif;
+              font-size:15px;
+              }
+
+        input[type=submit]{
+             margin-left:100px;
+             padding:10px;
+             font-size:18px;
+             background-color:Silver;
+             border-radius:8px;
+             font-family:serif;
+
+             }
+        textarea{
+               padding:10px;
+               width:40%;
+               margin-left:80px;
+               background-color:Silver;
+               font-family:serif;
+               font-size:15px;
+               }
+
+            .dropdown ul{
+                list-style:none;
+
+                }
+             .dropdown ul ul{
+                 display:none;
+                 }
+             .dropdown ul li:hover{
+                         background-color:yellow;
+                         }
+               .dropdown ul li:hover > ul{
+                      display:block;
+                      }
+           button{
+           margin-left:100px;
+             padding:10px;
+             font-size:18px;
+             background-color:Silver;
+             border-radius:8px;
+             font-family:serif;
+
+             }
+          #demo{
+                 font-size:20px;
+                 margin-left:60px;
+                 }
+
+ </style>
+</head>
+<body>
+<form method="post" action="{% url 'index' %}" style="margin-left:200px;">
+    {% csrf_token %}
+  <h2>Detailed Form</h2><br>
+  <input type="text" name="username" placeholder="Enter your Name"><br><br>
+    <input type="date" name="dob" placeholder="Enter your Date of Birth"><br><br>
+    <input type="text" name="age" placeholder="Enter your Age"><br><br>
+  <input type="email" name="mailid" placeholder="Enter your mail id"><br><br>
+  <input type="text" name="mobile" placeholder="Enter your mobile number"><br><br>
+  <label><b>Select Gender</b></label><br><br>
+  <input type="radio" name="gender/"> Female<br>
+  <input type="radio" name="gender/"> Male<br>
+  <input type="radio" name="gender/"> Others<br><br>
+    <textarea placeholder="Enter your Address" name="adrs"></textarea><br>
+    <br>
+
+    <div class="dropdown">
+    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" style="margin-left:80px;
+                                                           width:140px;">Department
+    &nbsp&nbsp<span class="caret"></span></button>
+    <ul class="dropdown-menu">
+        <li><a href="#">Computer Science</a>
+               <ul>
+                   <li>Bsc</li>
+                   <li>BCA</li>
+               </ul>
+        </li>
+        <li><a href="#">Biology science</a>
+               <ul>
+                   <li>Bsc chemistry</li>
+                   <li>Bsc maths</li>
+               </ul>
+        </li>
+        <li><a href="#">Commerce</a>
+                <ul>
+                   <li>BCom</li>
+                   <li>BBA</li>
+               </ul>
+        </li>
+        <li><a href="#">Humanities</a>
+                 <ul>
+                   <li>BA History</li>
+                   <li>BA Economics</li>
+               </ul>
+        </li>
+        <li><a href="#">Geology</a>
+                  <ul>
+                   <li>Bsc Botony</li>
+                   <li>Bsc Zoology</li>
+               </ul>
+        </li>
+    </ul>
+  </div>
+    <br>
+    <div class="dropdown">
+    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" style="margin-left:80px;
+                                                           width:140px;">Purpose
+    &nbsp&nbsp<span class="caret"></span></button>
+    <ul class="dropdown-menu">
+        <li><a href="#"> for enquiry:9876853560</a></li>
+        <li><a href="#">place order</a></li>
+        <li><a href="#">return</a></li>
+      </ul>
+  </div>
+    <br>
+  <label>Materials provide</label><br><br>
+  <input type="checkbox" name="book">Note Book<br>
+  <input type="checkbox" name="pen">Pen<br>
+  <input type="checkbox" name="pappers">Exam pappers<br>
+<br><br>
+<button type="button" onclick="myfunc()">submit</button><br><br>
+    <p id="demo"></p>
+<script>
+function myfunc()
+{
+document.getElementById('demo').innerHTML="Order Confirmed";
+}
+</script>
+
+    <input type="submit" value="logout">
+
+</form>
+</body>
+</html>

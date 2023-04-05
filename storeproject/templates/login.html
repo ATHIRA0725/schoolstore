@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <style>
+    input[type=text]{
+            background-color:lightgrey;
+            padding:10px;
+            color:black;
+            width:30%;
+            border-radius:8px;
+            font-size:20px;
+            }
+    input[type=password]{
+            background-color:lightgrey;
+            padding:10px;
+            width:30%;
+            border-radius:8px;
+            }
+
+     input[type=submit]{
+                background-color:Tomato;
+                color:black;
+                padding:10px;
+                margin-left:30px;
+                font-size:20px;
+                border-radius:10px;
+                font-family:serif;
+                font-style:italic;
+                }
+         label{
+              font-size:20px;
+              }
+        h3{
+            text-align:center;
+            font-style:italic;
+            color:MidnightBlue;
+            font-size:50px;
+            }
+
+        form {
+              text-align:center;
+               align:center;
+               background-color:Bisque;
+               width:80%;
+               margin-left:80px;
+               padding:10px;
+               border:2px solid black;
+
+               }
+
+  </style>
+</head>
+<body>
+<form method="POST" action="{% url 'login' %}">
+
+    {% csrf_token %}
+  <h3>Welcome to login page</h3><br>
+  <label><b>Enter User name</b></label><br>
+         <input type="text" size="30px" name="username"><br><br>
+  <label><b>Password</b></label><br>
+         <input type="password" size="30px" name="password"><br><br>
+
+  <input type="submit"  value="Login">
+    <h2>New User? click below</h2><a href="{% url 'register' %}"><b><h2>Register</h2></b></a>
+        {% if messages %}
+    <ul class="messages" type="none">
+        {% for message in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}" {% endif %} >{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</form>
+</body>
+</html>

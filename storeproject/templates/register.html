@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        form {
+              text-align:center;
+               align:center;
+               background-color:#B384B3;
+               width:60%;
+               margin-left:200px;
+               margin-top:50px;
+               padding:40px;
+               height:500px;
+               border:2px solid black;
+
+               }
+         input[type=text]{
+            background-color:lightgrey;
+            padding:10px;
+            color:black;
+            width:40%;
+            border-radius:8px;
+            font-size:20px;
+            font-family:serif;
+            }
+        input[type=password]{
+            background-color:lightgrey;
+            padding:10px;
+            width:40%;
+            border-radius:8px;
+            font-family:serif;
+            font-size:20px;
+            }
+         input[type=submit]{
+                background-color:#98CFCF;
+                color:black;
+                padding:10px;
+                margin-left:27px;
+                font-size:20px;
+                border-radius:10px;
+                font-family:serif;
+                font-style:italic;
+                }
+
+
+
+    </style>
+</head>
+<body>
+<form method="POST" action="{% url 'register' %}">
+    {% csrf_token %}
+    <h1>Registration form</h1><br>
+  <input type="text" name="username" placeholder="Enter your name"><br><br><br>
+  <input type="password" name="password" placeholder="Enter password"><br><br><br>
+  <input type="password" name="cpassword" placeholder="Confirm your password"><br><br><br><br>
+  <input type="submit">
+        {% if messages %}
+    <ul class="messages" type="none">
+        {% for message in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}" {% endif %} >{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</form>
+
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="{% url 'form' %}" style="margin-top:300px;
+                                     margin-left:400px;">
+    {% csrf_token %}
+<input type="submit" value="Detailed Form" style="font-size:30px;
+                                    border-radius:6px;padding:10px;background-color:grey;color:white;">
+
+</form>
+</body>
+</html>
